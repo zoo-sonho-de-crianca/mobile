@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "832893568866",
+    "project_id": "zoo-sonho-de-crianca",
+    "storage_bucket": "zoo-sonho-de-crianca.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:832893568866:android:1d1e1552283d08cd34ce3b",
+        "android_client_info": {
+          "package_name": "com.anonymous.zoo_mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZS-ZIgQD9GPd7A0fXTqFR3tOWLqcr0yE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
