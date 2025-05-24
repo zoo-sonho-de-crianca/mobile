@@ -1,3 +1,4 @@
+import { colors } from "@/src/styles/colors";
 import { Link, type RelativePathString } from "expo-router";
 import React from "react";
 import { StyleSheet, Text } from "react-native";
@@ -32,11 +33,11 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   orange: {
-    backgroundColor: "#FF8B3E",
+    backgroundColor: colors.orange,
     color: "white",
   },
   lightOrange: {
-    backgroundColor: "#FDF6EE",
-    color: "#FF8B3E",
+    backgroundColor: colors.lightOrange,
+    color: colors.orange,
   },
 });
