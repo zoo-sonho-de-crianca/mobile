@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
-import LinkButton from "./components/LinkButton";
 import { Link } from "expo-router";
 import { urbanist } from "../styles/typography";
+import { Button } from "@/components/ui/button";
+import { colors } from "../styles/colors";
 
 const appImage = require("../../assets/images/app_logo.png");
 
@@ -12,19 +13,26 @@ export default function AuthScreen() {
       <Image source={appImage} style={styles.image} />
 
       <View style={styles.greeting}>
-        <Text style={[urbanist.bold, { fontSize: 32 }]}>Bem-vindo (a)!</Text>
-        <Text style={[urbanist.regular, { fontSize: 18 }]}>
+        <Text style={[urbanist.bold, { fontSize: 32, textAlign: "center" }]}>
+          Bem-vindo (a)!
+        </Text>
+        <Text style={[urbanist.regular, { fontSize: 18, textAlign: "center" }]}>
           Faça login ou cadastre-se
         </Text>
       </View>
 
       <View style={styles.buttonsView}>
-        <LinkButton label="Entrar" link="./screens/Auth/SignInScreen" />
-        <LinkButton
-          label="Cadastre-se"
-          link="./screens/Auth/SignUpScreen"
-          variant="lightOrange"
-        />
+        <Button type="orange">
+          <Text style={{ color: colors.white, fontWeight: "bold" }}>
+            Entrar
+          </Text>
+        </Button>
+
+        <Button type="lightOrange">
+          <Text style={{ color: colors.orange, fontWeight: "bold" }}>
+            Cadastre-se
+          </Text>
+        </Button>
       </View>
 
       <View style={styles.policies}>
