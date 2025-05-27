@@ -1,4 +1,4 @@
-import { Link } from "expo-router";
+import { Link, type RelativePathString } from "expo-router";
 import React from "react";
 import { Text, type ColorValue } from "react-native";
 import { Button } from "@/components/ui/button";
@@ -7,13 +7,15 @@ export default function ComponentButton({
   label,
   type,
   textColor,
+  link,
 }: {
   label: string;
   type: "orange" | "lightOrange" | undefined;
   textColor: ColorValue;
+  link: RelativePathString;
 }) {
   return (
-    <Link href="/screens/Auth/SignUpScreen">
+    <Link href={link} asChild>
       <Button type={type}>
         <Text
           style={{
