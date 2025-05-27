@@ -4,6 +4,7 @@ import { Link } from "expo-router";
 import { urbanist } from "../styles/typography";
 import { Button } from "@/components/ui/button";
 import { colors } from "../styles/colors";
+import ComponentButton from "./components/ComponentButton";
 
 const appImage = require("../../assets/images/app_logo.png");
 
@@ -22,17 +23,17 @@ export default function AuthScreen() {
       </View>
 
       <View style={styles.buttonsView}>
-        <Button type="orange">
-          <Text style={{ color: colors.white, fontWeight: "bold" }}>
-            Entrar
-          </Text>
-        </Button>
+        <ComponentButton
+          label="Entrar"
+          type="orange"
+          textColor={colors.white}
+        />
 
-        <Button type="lightOrange">
-          <Text style={{ color: colors.orange, fontWeight: "bold" }}>
-            Cadastre-se
-          </Text>
-        </Button>
+        <ComponentButton
+          label="Cadastre-se"
+          type="lightOrange"
+          textColor={colors.orange}
+        />
       </View>
 
       <View style={styles.policies}>
