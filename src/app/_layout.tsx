@@ -27,5 +27,9 @@ export default function Layout() {
     return null;
   }
 
-  return <GluestackUIProvider mode="light"><Stack screenOptions={{ headerShown: false }} /></GluestackUIProvider>;
+  return (
+    <GluestackUIProvider mode="light">
+      <Stack screenOptions={{ headerShown: false }} />
+    </GluestackUIProvider>
+  );
 }

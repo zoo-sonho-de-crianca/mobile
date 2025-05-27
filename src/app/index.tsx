@@ -2,7 +2,6 @@ import { View, Text, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 import { Link } from "expo-router";
 import { urbanist } from "../styles/typography";
-import { Button } from "@/components/ui/button";
 import { colors } from "../styles/colors";
 import ComponentButton from "./components/ComponentButton";
 
@@ -27,14 +26,14 @@ export default function AuthScreen() {
           label="Entrar"
           type="orange"
           textColor={colors.white}
-          link="./screens/Auth/SignInScreen"
+          link="/auth/signin"
         />
 
         <ComponentButton
           label="Cadastre-se"
           type="lightOrange"
           textColor={colors.orange}
-          link="./screens/Auth/SignUpScreen"
+          link="/auth/signup"
         />
       </View>
 

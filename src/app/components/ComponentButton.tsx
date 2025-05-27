@@ -1,4 +1,4 @@
-import { Link, type RelativePathString } from "expo-router";
+import { Link, type Href, type RelativePathString } from "expo-router";
 import React from "react";
 import { Text, type ColorValue } from "react-native";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,7 @@ export default function ComponentButton({
   label: string;
   type: "orange" | "lightOrange" | undefined;
   textColor: ColorValue;
-  link: RelativePathString;
+  link: Href;
 }) {
   return (
     <Link href={link} asChild>
