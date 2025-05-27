@@ -7,4 +7,10 @@ export const urbanist = StyleSheet.create({
   bold: {
     fontFamily: "Urbanist_700Bold",
   },
+  semibold: {
+    fontFamily: "Urbanist_600SemiBold",
+  },
+  medium: {
+    fontFamily: "Urbanist_500Medium",
+  },
 });

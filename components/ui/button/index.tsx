@@ -134,20 +134,14 @@ type IButtonProps = Omit<
 > &
   VariantProps<typeof buttonStyle> & {
     className?: string;
-    type?: "orange" | "lightOrange";
+    type?: "orange" | "lightOrange" | "blackOrange" | "google" | "apple";
   };
 
 const Button = React.forwardRef<
   React.ComponentRef<typeof UIButton>,
   IButtonProps
 >(function Button(
-  {
-    className,
-    type = "lightOrange",
-    variant = "solid",
-    action = "primary",
-    ...props
-  },
+  { className, type, variant = "solid", action = "primary", ...props },
   ref
 ) {
   return (
@@ -157,9 +151,22 @@ const Button = React.forwardRef<
       style={[
         {
           backgroundColor:
-            type === "lightOrange" ? colors.lightOrange : colors.orange,
+            type === "orange"
+              ? colors.orange
+              : type === "lightOrange"
+              ? colors.lightOrange
+              : type === "blackOrange"
+              ? colors.blackOrange
+              : type === "google"
+              ? colors.google
+              : type === "apple"
+              ? colors.apple
+              : undefined,
           paddingVertical: 16,
           borderRadius: 1000,
+          borderWidth: type === "apple" || type === "google" ? 1 : undefined,
+          borderColor:
+            type === "apple" || type === "google" ? "#EEEEEE" : undefined,
         },
       ]}
       className={buttonStyle({

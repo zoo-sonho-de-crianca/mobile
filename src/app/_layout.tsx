@@ -5,6 +5,8 @@ import {
   Urbanist_700Bold,
   Urbanist_400Regular,
   useFonts,
+  Urbanist_600SemiBold,
+  Urbanist_500Medium,
 } from "@expo-google-fonts/urbanist";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
@@ -15,6 +17,8 @@ export default function Layout() {
   const [loaded, error] = useFonts({
     Urbanist_700Bold,
     Urbanist_400Regular,
+    Urbanist_600SemiBold,
+    Urbanist_500Medium,
   });
 
   useEffect(() => {

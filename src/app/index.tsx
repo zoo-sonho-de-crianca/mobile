@@ -38,11 +38,11 @@ export default function AuthScreen() {
       </View>
 
       <View style={styles.policies}>
-        <Link href="/screens/Policy/PrivacyPolicy">
+        <Link href="/policy/PrivacyPolicy">
           <Text style={urbanist.regular}>Política de Privacidade</Text>
         </Link>
         <Text style={styles.circle}>·</Text>
-        <Link href="/screens/Policy/ServiceTerms">
+        <Link href="/policy/ServiceTerms">
           <Text style={urbanist.regular}>Termos de Serviço</Text>
         </Link>
       </View>
