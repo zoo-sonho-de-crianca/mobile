@@ -12,15 +12,16 @@ export default function ComponentButton({
   type = "lightOrange",
   textColor,
   link,
+  ...props
 }: {
   label: string;
   type: "orange" | "lightOrange" | "google" | "apple";
   textColor: ColorValue;
   link: Href;
-}) {
+} & React.ComponentProps<typeof Button>) {
   return (
     <Link href={link} asChild>
-      <Button type={type}>
+      <Button type={type} {...props}>
         <Text
           style={{
             color: textColor,

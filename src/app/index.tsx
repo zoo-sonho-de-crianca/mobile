@@ -26,14 +26,14 @@ export default function AuthScreen() {
           label="Entrar"
           type="orange"
           textColor={colors.white}
-          link="/auth/signin"
+          link="/auth/SignIn"
         />
 
         <ComponentButton
           label="Cadastre-se"
           type="lightOrange"
           textColor={colors.orange}
-          link="/auth/signup"
+          link="/auth/SignUp"
         />
       </View>
 

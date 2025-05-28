@@ -110,7 +110,7 @@ export default function SignInScreen() {
               </Checkbox>
 
               <Link
-                href="/auth/forgot-password"
+                href="/auth/ForgotPassword"
                 className="ml-auto mt-3 text-[18px]"
                 style={[urbanist.semibold, { color: colors.orange }]}
               >
