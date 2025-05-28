@@ -4,8 +4,7 @@ import AccountCard from "../components/AccountCard";
 import { View } from "react-native";
 import { urbanist } from "@/src/styles/typography";
 import { Button } from "@/components/ui/button";
-import { Image } from "expo-image";
-import Feather from "@expo/vector-icons/Feather";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 export default function UserProfile() {
   return (
@@ -16,7 +15,7 @@ export default function UserProfile() {
         </Text>
 
         <Button>
-          <Feather name="plus-square" size={24} color="black" />
+          <FontAwesome name="plus-square-o" size={24} color="black" />
         </Button>
       </View>
       <AccountCard />
