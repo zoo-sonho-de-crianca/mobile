@@ -12,7 +12,7 @@ const discoveryOrangeIcon = require("@/assets/images/discovery-orange-icon.png")
 
 export default function AccountCard() {
   return (
-    <View className="flex flex-row gap-4 p-4 bg-[#FAFAFA] rounded-xl items-start justify-center">
+    <View className="flex flex-row gap-4 p-4 bg-[#FAFAFA] rounded-md items-start justify-center">
       <Image source={zooImage} style={{ height: 80, width: 80 }} />
 
       <View className="flex flex-col gap-[14px]">
