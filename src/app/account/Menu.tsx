@@ -4,7 +4,7 @@ import AccountCard from "../components/AccountCard";
 import { View } from "react-native";
 import { urbanist } from "@/src/styles/typography";
 import { Button } from "@/components/ui/button";
-import PlusIcon from "@/assets/images/plus_icon.svg";
+import PlusOrangeIcon from "@/assets/images/plus-orange_icon.svg";
 import Logout from "@/assets/images/logout_icon.svg";
 import { colors } from "@/src/styles/colors";
 
@@ -17,7 +17,7 @@ export default function UserProfile() {
         </Text>
 
         <Button>
-          <PlusIcon height={36} width={36} />
+          <PlusOrangeIcon height={36} width={36} />
         </Button>
       </View>
 

@@ -10,7 +10,7 @@ import DiscoveryIcon from "@/assets/images/discovery_icon.svg";
 
 export default function AccountCard() {
   return (
-    <Link href="/general/Home" asChild>
+    <Link href="/home" asChild>
       <Pressable className="flex flex-row p-4 bg-[#FAFAFA] rounded-md">
         <View className="flex flex-row gap-4 items-start justify-center">
           <AvatarZoo width={80} height={80} />
