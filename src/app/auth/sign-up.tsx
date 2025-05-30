@@ -14,15 +14,18 @@ import {
 import { colors } from "@/src/styles/colors";
 import { urbanist } from "@/src/styles/typography";
 import ComponentButton from "../components/ComponentButton";
+import { CustomModal } from "../components/CustomModal";
+import { Spinner } from "@/components/ui/spinner";
 import EyeIcon from "@/assets/images/eye_icon.svg";
 import EyeOffIcon from "@/assets/images/eye-off_icon.svg";
 import LockIcon from "@/assets/images/lock_icon.svg";
 import MessageIcon from "@/assets/images/message_icon.svg";
 import CheckIcon from "@/assets/images/check_icon.svg";
 
-export default function SignInScreen() {
+export default function SignUpScreen() {
   const [showPassword, setShowPassword] = React.useState(false);
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
+  const [showModal, setShowModal] = React.useState(false);
 
   return (
     <View className="flex-1 bg-white">
@@ -39,7 +42,7 @@ export default function SignInScreen() {
               <Text style={urbanist.semibold} className="text-[18px]">
                 E-mail
               </Text>
-              <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
+              <Input className="h-[65px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
                   <InputIcon
                     as={() => <MessageIcon width={20} height={20} />}
@@ -59,7 +62,7 @@ export default function SignInScreen() {
               <Text style={urbanist.semibold} className="text-[18px]">
                 Senha
               </Text>
-              <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
+              <Input className="h-[65px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
                   <InputIcon as={() => <LockIcon width={20} height={20} />} />
                 </InputSlot>
@@ -84,7 +87,7 @@ export default function SignInScreen() {
             </VStack>
 
             {/* Checkbox e Esqueceu */}
-            <View className="mt-6">
+            <View className="mt-6 flex flex-col gap-9 items-center">
               <Checkbox value="keep-logged" onChange={() => {}}>
                 <CheckboxIndicator>
                   <CheckboxIcon as={CheckIcon} />
@@ -93,17 +96,28 @@ export default function SignInScreen() {
                   style={urbanist.medium}
                   className="text-[18px] text-black"
                 >
-                  Mantenha-me conectado
+                  Eu concordo com os{" "}
+                  <Link
+                    style={[{ color: colors.orange }]}
+                    href={"/policy/terms-conditions"}
+                  >
+                    Termos & Condições
+                  </Link>
+                  .
                 </CheckboxLabel>
               </Checkbox>
 
-              <Link
-                href="/auth/ForgotPassword"
-                className="ml-auto mt-3 text-[18px]"
-                style={[urbanist.semibold, { color: colors.orange }]}
-              >
-                Esqueceu a senha?
-              </Link>
+              <Text className="text-[18px]">
+                Já tem uma conta?
+                <Link
+                  href="/auth/sign-in"
+                  className="ml-auto mt-3 text-[18px]"
+                  style={[urbanist.semibold, { color: colors.orange }]}
+                >
+                  {" "}
+                  Entrar
+                </Link>
+              </Text>
             </View>
 
             <View className="flex flex-col gap-5">
@@ -131,15 +145,23 @@ export default function SignInScreen() {
             </View>
           </View>
 
-          {/* Botão Entrar lá embaixo */}
-          <View className="mt-10">
-            <ComponentButton
-              label="Entrar"
-              textColor={colors.white}
-              type="orange"
-              link={"/"}
-            />
-          </View>
+          <ComponentButton
+            label="Cadastre-se"
+            textColor={colors.white}
+            type="orange"
+            link={"/account/Menu"}
+            onPress={() => setShowModal(true)}
+          />
+
+          <CustomModal
+            isOpen={showModal}
+            onClose={() => {
+              setShowModal(false);
+            }}
+            size="md"
+          >
+            <Spinner size="large" color={colors.orange} />
+          </CustomModal>
         </View>
       </ScrollView>
     </View>

@@ -25,23 +25,23 @@ export default function AuthScreen() {
           label="Entrar"
           type="orange"
           textColor={colors.white}
-          link="/auth/SignIn"
+          link="/auth/sign-in"
         />
 
         <ComponentButton
           label="Cadastre-se"
           type="lightOrange"
           textColor={colors.orange}
-          link="/auth/SignUp"
+          link="/auth/sign-up"
         />
       </View>
 
       <View style={styles.policies}>
-        <Link href="/policy/PrivacyPolicy">
+        <Link href="/policy/privacy-policy">
           <Text style={urbanist.regular}>Política de Privacidade</Text>
         </Link>
         <Text style={styles.circle}>·</Text>
-        <Link href="/policy/ServiceTerms">
+        <Link href="/policy/service-terms">
           <Text style={urbanist.regular}>Termos de Serviço</Text>
         </Link>
       </View>
