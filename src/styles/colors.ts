@@ -9,4 +9,5 @@ export const colors: { [key: string]: ColorValue } = {
   google: "#FFFFFF",
   apple: "#FFFFFF",
   gray_700: "#616161",
+  red: "#F75555",
 };
