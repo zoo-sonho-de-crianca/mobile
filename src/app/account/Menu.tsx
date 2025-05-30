@@ -5,6 +5,7 @@ import { View } from "react-native";
 import { urbanist } from "@/src/styles/typography";
 import { Button } from "@/components/ui/button";
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import PlusIcon from "@/assets/images/plus_icon.svg";
 
 export default function UserProfile() {
   return (
@@ -15,7 +16,7 @@ export default function UserProfile() {
         </Text>
 
         <Button>
-          <FontAwesome name="plus-square-o" size={24} color="black" />
+          <PlusIcon height={36} width={36} />
         </Button>
       </View>
       <AccountCard />
