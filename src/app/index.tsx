@@ -4,13 +4,12 @@ import { Link } from "expo-router";
 import { urbanist } from "../styles/typography";
 import { colors } from "../styles/colors";
 import ComponentButton from "./components/ComponentButton";
-
-const appImage = require("../../assets/images/app_logo.png");
+import AppIcon from "@/assets/images/app_logo.svg";
 
 export default function AuthScreen() {
   return (
     <View style={styles.container}>
-      <Image source={appImage} style={styles.image} />
+      <AppIcon width={80} height={80} />
 
       <View style={styles.greeting}>
         <Text style={[urbanist.bold, { fontSize: 32, textAlign: "center" }]}>

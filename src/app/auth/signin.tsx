@@ -14,12 +14,11 @@ import {
 import { colors } from "@/src/styles/colors";
 import { urbanist } from "@/src/styles/typography";
 import ComponentButton from "../components/ComponentButton";
-
-const eyeIcon = require("@/assets/images/eye-icon.png");
-const eyeOffIcon = require("@/assets/images/eye-off-icon.png");
-const lockIcon = require("@/assets/images/lock-icon.png");
-const messageIcon = require("@/assets/images/message-icon.png");
-const checkIcon = require("@/assets/images/check-icon.png");
+import EyeIcon from "@/assets/images/eye_icon.svg";
+import EyeOffIcon from "@/assets/images/eye-off_icon.svg";
+import LockIcon from "@/assets/images/lock_icon.svg";
+import MessageIcon from "@/assets/images/message_icon.svg";
+import CheckIcon from "@/assets/images/check_icon.svg";
 
 export default function SignInScreen() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -43,12 +42,7 @@ export default function SignInScreen() {
               <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
                   <InputIcon
-                    as={() => (
-                      <Image
-                        source={messageIcon}
-                        style={{ height: 20, width: 20 }}
-                      />
-                    )}
+                    as={() => <MessageIcon width={20} height={20} />}
                   />
                 </InputSlot>
                 <InputField
@@ -67,14 +61,7 @@ export default function SignInScreen() {
               </Text>
               <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
-                  <InputIcon
-                    as={() => (
-                      <Image
-                        source={lockIcon}
-                        style={{ height: 20, width: 20 }}
-                      />
-                    )}
-                  />
+                  <InputIcon as={() => <LockIcon width={20} height={20} />} />
                 </InputSlot>
                 <InputField
                   type={showPassword ? "text" : "password"}
@@ -84,12 +71,13 @@ export default function SignInScreen() {
                 />
                 <InputSlot onPress={togglePasswordVisibility} className="pr-5">
                   <InputIcon
-                    as={() => (
-                      <Image
-                        source={showPassword ? eyeIcon : eyeOffIcon}
-                        style={{ height: 20, width: 20 }}
-                      />
-                    )}
+                    as={() =>
+                      showPassword ? (
+                        <EyeIcon width={20} height={20} />
+                      ) : (
+                        <EyeOffIcon width={20} height={20} />
+                      )
+                    }
                   />
                 </InputSlot>
               </Input>
@@ -99,7 +87,7 @@ export default function SignInScreen() {
             <View className="mt-6">
               <Checkbox value="keep-logged" onChange={() => {}}>
                 <CheckboxIndicator>
-                  <CheckboxIcon as={checkIcon} />
+                  <CheckboxIcon as={CheckIcon} />
                 </CheckboxIndicator>
                 <CheckboxLabel
                   style={urbanist.medium}

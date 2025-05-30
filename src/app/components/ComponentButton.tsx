@@ -3,9 +3,8 @@ import React from "react";
 import { Text, type ColorValue } from "react-native";
 import { Button } from "@/components/ui/button";
 import { Image } from "expo-image";
-
-const googleIcon = require("@/assets/images/google-icon.png");
-const appleIcon = require("@/assets/images/apple-icon.png");
+import GoogleIcon from "@/assets/images/google_icon.svg";
+import AppleIcon from "@/assets/images/apple_icon.svg";
 
 export default function ComponentButton({
   label,
@@ -33,19 +32,9 @@ export default function ComponentButton({
           {label}
         </Text>
 
-        {type === "apple" && (
-          <Image
-            source={appleIcon}
-            style={{ height: 24, width: 24, position: "absolute", left: 16 }}
-          />
-        )}
+        {type === "apple" && <AppleIcon width={24} height={24} />}
 
-        {type === "google" && (
-          <Image
-            source={googleIcon}
-            style={{ height: 24, width: 24, position: "absolute", left: 16 }}
-          />
-        )}
+        {type === "google" && <GoogleIcon width={24} height={24} />}
       </Button>
     </Link>
   );
