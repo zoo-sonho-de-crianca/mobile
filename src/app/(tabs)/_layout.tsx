@@ -7,6 +7,10 @@ import PlusOutlineIcon from "@/assets/images/plus-outline_icon.svg";
 import PlusOutlineOrangeIcon from "@/assets/images/plus-outline-orange_icon.svg";
 import SettingsIcon from "@/assets/images/settings_icon.svg";
 import SettingsOrangeIcon from "@/assets/images/settings-orange_icon.svg";
+import PawIcon from "@/assets/images/paw_icon.svg";
+import PawOrangeIcon from "@/assets/images/paw-orange_icon.svg";
+import EyedropperIcon from "@/assets/images/eyedropper_icon.svg";
+import EyedropperOrangeIcon from "@/assets/images/eyedropper-orange_icon.svg";
 
 export default function TabLayout() {
   return (
@@ -30,43 +34,28 @@ export default function TabLayout() {
       />
 
       <Tabs.Screen
-        name="enrichment"
-        options={{
-          title: "Enriquecimento",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name="extension-puzzle-outline"
-              color={focused ? color : String(colors.gray)}
-              size={24}
-            />
-          ),
-        }}
-      />
-
-      <Tabs.Screen
         name="procedures"
         options={{
           title: "Procedimentos",
           tabBarIcon: ({ color, focused }) =>
             focused ? (
-              <PlusOutlineOrangeIcon height={24} width={24} />
+              <EyedropperOrangeIcon height={24} width={24} />
             ) : (
-              <PlusOutlineIcon height={24} width={24} />
+              <EyedropperIcon height={24} width={24} />
             ),
         }}
       />
 
       <Tabs.Screen
-        name="food"
+        name="animals"
         options={{
-          title: "Alimentação",
-          tabBarIcon: ({ color, focused }) => (
-            <Ionicons
-              name="fish-outline"
-              color={focused ? color : String(colors.gray)}
-              size={24}
-            />
-          ),
+          title: "Animais",
+          tabBarIcon: ({ color, focused }) =>
+            focused ? (
+              <PawOrangeIcon height={24} width={24} />
+            ) : (
+              <PawIcon height={24} width={24} />
+            ),
         }}
       />
 

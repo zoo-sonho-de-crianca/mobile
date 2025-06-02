@@ -149,7 +149,7 @@ export default function SignUpScreen() {
             label="Cadastre-se"
             textColor={colors.white}
             type="orange"
-            link={"/account/Menu"}
+            link={"/account/menu"}
             onPress={() => setShowModal(true)}
           />
 
