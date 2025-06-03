@@ -1,12 +1,13 @@
 import React from "react";
 import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
-import AvatarImage01 from "@/assets/images/animal-01.jpg";
-import AvatarImage02 from "@/assets/images/animal-02.jpg";
-import AvatarImage03 from "@/assets/images/animal-03.jpg";
-import AvatarImage04 from "@/assets/images/animal-04.jpg";
-import AvatarImage05 from "@/assets/images/animal-05.jpg";
 import { Image } from "expo-image";
 import HeaderSection from "./HeaderSection";
+
+const AvatarImage01 = require("@/assets/images/animal-01.jpg");
+const AvatarImage02 = require("@/assets/images/animal-02.jpg");
+const AvatarImage03 = require("@/assets/images/animal-03.jpg");
+const AvatarImage04 = require("@/assets/images/animal-04.jpg");
+const AvatarImage05 = require("@/assets/images/animal-05.jpg");
 
 const { width } = Dimensions.get("window");
 const CARD_WIDTH = width * 0.8; // 80% da tela
