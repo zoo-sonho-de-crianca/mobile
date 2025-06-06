@@ -5,13 +5,16 @@ import PawFilledIcon from "@/assets/images/paw-filled_icon.svg";
 import NotificationIcon from "@/assets/images/notification_icon.svg";
 import EllipseIcon from "@/assets/images/ellipse_icon.svg";
 import { urbanist } from "@/src/styles/typography";
+import PawFilledOrangeIcon from "@/assets/images/paw-filled-orange_icon.svg";
+import VerticalEllipsis from "@/assets/images/vertical-ellipsis_icon.svg";
 
 type HeaderProps = {
   showBack?: boolean;
   type?: string;
+  label?: string | undefined;
 };
 
-export default function Header({ showBack = true, type }: HeaderProps) {
+export default function Header({ showBack = true, type, label }: HeaderProps) {
   return (
     <View
       style={{
@@ -60,7 +63,22 @@ export default function Header({ showBack = true, type }: HeaderProps) {
         </View>
       ) : undefined}
 
-      {/* <View style={{ width: 50 }} /> */}
+      {type === "settings" ? (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flex: 1,
+          }}
+        >
+          <PawFilledOrangeIcon width={28} height={28} />
+
+          <Text style={[urbanist.bold, { fontSize: 24 }]}>{label}</Text>
+
+          <VerticalEllipsis />
+        </View>
+      ) : undefined}
     </View>
   );
 }

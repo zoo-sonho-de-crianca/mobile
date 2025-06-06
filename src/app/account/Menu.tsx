@@ -5,8 +5,8 @@ import { View } from "react-native";
 import { urbanist } from "@/src/styles/typography";
 import { Button } from "@/components/ui/button";
 import PlusOrangeIcon from "@/assets/images/plus-orange_icon.svg";
-import Logout from "@/assets/images/logout_icon.svg";
 import { colors } from "@/src/styles/colors";
+import Logout from "../components/Logout";
 
 export default function UserProfile() {
   return (
@@ -25,16 +25,7 @@ export default function UserProfile() {
         <AccountCard />
       </View>
 
-      <View className="flex flex-row items-center gap-5">
-        <Logout width={24} height={24} />
-
-        <Text
-          style={[urbanist.bold, { color: colors.red }]}
-          className="text-[18px]"
-        >
-          Sair
-        </Text>
-      </View>
+      <Logout />
     </View>
   );
 }

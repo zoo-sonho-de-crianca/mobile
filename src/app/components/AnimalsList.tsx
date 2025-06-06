@@ -46,7 +46,7 @@ const data = [
   },
 ];
 
-export default function ProceduresHistory({ label }: { label: string }) {
+export default function AnimalsList({ label }: { label: string }) {
   return (
     <View style={{ flexDirection: "column", gap: 16 }}>
       <HeaderSection label={label} />

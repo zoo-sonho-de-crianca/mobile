@@ -13,4 +13,7 @@ export const urbanist = StyleSheet.create({
   medium: {
     fontFamily: "Urbanist_500Medium",
   },
+  light: {
+    fontFamily: "Urbanist_300Light",
+  },
 });

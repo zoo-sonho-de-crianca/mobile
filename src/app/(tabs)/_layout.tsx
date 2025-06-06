@@ -11,66 +11,69 @@ import PawIcon from "@/assets/images/paw_icon.svg";
 import PawOrangeIcon from "@/assets/images/paw-orange_icon.svg";
 import EyedropperIcon from "@/assets/images/eyedropper_icon.svg";
 import EyedropperOrangeIcon from "@/assets/images/eyedropper-orange_icon.svg";
+import { SafeAreaView } from "react-native";
 
 export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: String(colors.orange),
-        headerShown: false,
-      }}
-    >
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: "Início",
-          tabBarIcon: ({ color, focused }) =>
-            focused ? (
-              <HomeOrangeIcon height={24} width={24} />
-            ) : (
-              <HomeIcon height={24} width={24} />
-            ),
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.white }}>
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: String(colors.orange),
+          headerShown: false,
         }}
-      />
+      >
+        <Tabs.Screen
+          name="home"
+          options={{
+            title: "Início",
+            tabBarIcon: ({ color, focused }) =>
+              focused ? (
+                <HomeOrangeIcon height={24} width={24} />
+              ) : (
+                <HomeIcon height={24} width={24} />
+              ),
+          }}
+        />
 
-      <Tabs.Screen
-        name="procedures"
-        options={{
-          title: "Procedimentos",
-          tabBarIcon: ({ color, focused }) =>
-            focused ? (
-              <EyedropperOrangeIcon height={24} width={24} />
-            ) : (
-              <EyedropperIcon height={24} width={24} />
-            ),
-        }}
-      />
+        <Tabs.Screen
+          name="procedures"
+          options={{
+            title: "Procedimentos",
+            tabBarIcon: ({ color, focused }) =>
+              focused ? (
+                <EyedropperOrangeIcon height={24} width={24} />
+              ) : (
+                <EyedropperIcon height={24} width={24} />
+              ),
+          }}
+        />
 
-      <Tabs.Screen
-        name="animals"
-        options={{
-          title: "Animais",
-          tabBarIcon: ({ color, focused }) =>
-            focused ? (
-              <PawOrangeIcon height={24} width={24} />
-            ) : (
-              <PawIcon height={24} width={24} />
-            ),
-        }}
-      />
+        <Tabs.Screen
+          name="animals"
+          options={{
+            title: "Animais",
+            tabBarIcon: ({ color, focused }) =>
+              focused ? (
+                <PawOrangeIcon height={24} width={24} />
+              ) : (
+                <PawIcon height={24} width={24} />
+              ),
+          }}
+        />
 
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: "Configurações",
-          tabBarIcon: ({ color, focused }) =>
-            focused ? (
-              <SettingsOrangeIcon height={24} width={24} />
-            ) : (
-              <SettingsIcon height={24} width={24} />
-            ),
-        }}
-      />
-    </Tabs>
+        <Tabs.Screen
+          name="settings"
+          options={{
+            title: "Configurações",
+            tabBarIcon: ({ color, focused }) =>
+              focused ? (
+                <SettingsOrangeIcon height={24} width={24} />
+              ) : (
+                <SettingsIcon height={24} width={24} />
+              ),
+          }}
+        />
+      </Tabs>
+    </SafeAreaView>
   );
 }
