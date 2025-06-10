@@ -6,6 +6,7 @@ import ArrowRightIcon from "@/assets/images/arrow-right_icon.svg";
 import Logout from "../components/Logout";
 import { colors } from "@/src/styles/colors";
 import { urbanist } from "@/src/styles/typography";
+import SettingsCard from "../components/SettingsCard";
 
 const FabricioAvatar = require("@/assets/images/fabricio_avatar_profile.png");
 
@@ -14,8 +15,16 @@ export default function Settings() {
     <View style={{ backgroundColor: colors.white, flex: 1 }}>
       <Header label="Configurações" showBack={false} type="settings" />
 
-      <ScrollView>
-        <View style={{ paddingHorizontal: 24 }}>
+      <ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "space-between",
+          paddingHorizontal: 24,
+          paddingBottom: 32, // para evitar que o botão fique grudado em borda inferior
+        }}
+      >
+        {/* Conteúdo principal */}
+        <View>
           <View
             style={{
               flexDirection: "row",
@@ -55,16 +64,21 @@ export default function Settings() {
 
           <View
             style={{
-              flexDirection: "row",
               height: 1,
               width: "100%",
               marginVertical: 24,
               backgroundColor: "#EEEEEE",
             }}
-          ></View>
+          />
 
-          <Logout />
+          <View className="flex flex-col gap-[32px]">
+            <SettingsCard variant="profile" link="/profile" />
+            <SettingsCard variant="invites" link="/invites" />
+          </View>
         </View>
+
+        {/* Botão fixado ao fim do conteúdo */}
+        <Logout />
       </ScrollView>
     </View>
   );
