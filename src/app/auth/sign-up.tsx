@@ -145,7 +145,7 @@ export default function SignUpScreen() {
             </View>
           </View>
 
-          <ComponentButton
+          <ComponentButton 
             label="Cadastre-se"
             textColor={colors.white}
             type="orange"
