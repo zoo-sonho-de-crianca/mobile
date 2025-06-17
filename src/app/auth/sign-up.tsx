@@ -42,7 +42,7 @@ export default function SignUpScreen() {
               <Text style={urbanist.semibold} className="text-[18px]">
                 E-mail
               </Text>
-              <Input className="h-[65px] rounded-[10px] bg-[#FAFAFA] border-0">
+              <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
                   <InputIcon
                     as={() => <MessageIcon width={20} height={20} />}
@@ -62,7 +62,7 @@ export default function SignUpScreen() {
               <Text style={urbanist.semibold} className="text-[18px]">
                 Senha
               </Text>
-              <Input className="h-[65px] rounded-[10px] bg-[#FAFAFA] border-0">
+              <Input className="h-[58px] rounded-[10px] bg-[#FAFAFA] border-0">
                 <InputSlot className="pl-5">
                   <InputIcon as={() => <LockIcon width={20} height={20} />} />
                 </InputSlot>

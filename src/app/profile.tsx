@@ -112,7 +112,7 @@ export default function Profile() {
                         <SelectDragIndicatorWrapper>
                           <SelectDragIndicator />
                         </SelectDragIndicatorWrapper>
-                        <SelectItem label="Masculino" value="male" isDisabled={true} />
+                        <SelectItem label="Masculino" value="male" />
                         <SelectItem label="Feminino" value="female" />
                       </SelectContent>
                     </SelectPortal>
