@@ -1,5 +1,6 @@
 import { Stack } from "expo-router";
 import React from "react";
+import { Text, View } from "react-native";
 
 export default function Convites() {
   return (
@@ -9,6 +10,10 @@ export default function Convites() {
           title: "Convites",
         }}
       />
+
+      <View className="flex-1">
+        <Text>Invites</Text>
+      </View>
     </>
   );
 }
