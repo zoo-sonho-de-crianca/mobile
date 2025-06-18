@@ -13,4 +13,7 @@ export const colors: { [key: string]: ColorValue } = {
   gray: "#9E9E9E",
   offWhite: "#D9D9D9",
   lead: "#212121",
+  newGray: "#F8F8F8",
+  defaultBorder: "#E0E0E0",
+  invitationOwnerButtonGray: "#EDEDEC"
 };

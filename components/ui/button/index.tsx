@@ -134,7 +134,7 @@ type IButtonProps = Omit<
 > &
   VariantProps<typeof buttonStyle> & {
     className?: string;
-    type?: "orange" | "lightOrange" | "blackOrange" | "google" | "apple";
+    type?: "orange" | "lightOrange" | "blackOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember";
   };
 
 const Button = React.forwardRef<
@@ -150,20 +150,28 @@ const Button = React.forwardRef<
       {...props}
       style={[
         {
+          height: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 40 : 56,
           backgroundColor:
             type === "orange"
               ? colors.orange
-              : type === "lightOrange"
-              ? colors.lightOrange
-              : type === "blackOrange"
-              ? colors.blackOrange
-              : type === "google"
-              ? colors.google
-              : type === "apple"
-              ? colors.apple
-              : undefined,
-          paddingVertical: 16,
-          borderRadius: 1000,
+              : type === "invitationOwner"
+                ? colors.invitationOwnerButtonGray
+                : type === "invitedMember"
+                  ? colors.orange
+                  : type === "lightOrange"
+                    ? colors.lightOrange
+                    : type === "invite"
+                      ? colors.orange
+                      : type === "blackOrange"
+                        ? colors.blackOrange
+                        : type === "google"
+                          ? colors.google
+                          : type === "apple"
+                            ? colors.apple
+                            : undefined,
+          paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 0 : 16,
+          paddingHorizontal: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 12 : 16,
+          borderRadius: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 8 : 1000,
           borderWidth: type === "apple" || type === "google" ? 1 : undefined,
           borderColor:
             type === "apple" || type === "google" ? "#EEEEEE" : undefined,

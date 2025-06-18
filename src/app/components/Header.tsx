@@ -7,6 +7,7 @@ import EllipseIcon from "@/assets/images/ellipse_icon.svg";
 import { urbanist } from "@/src/styles/typography";
 import PawFilledOrangeIcon from "@/assets/images/paw-filled-orange_icon.svg";
 import VerticalEllipsis from "@/assets/images/vertical-ellipsis_icon.svg";
+import { colors } from "@/src/styles/colors";
 
 type HeaderProps = {
   showBack?: boolean;
@@ -14,7 +15,7 @@ type HeaderProps = {
   label?: string | undefined;
 };
 
-export default function Header({ showBack = true, type, label }: HeaderProps) {
+export default function Header({ showBack = true, type = "default", label }: HeaderProps) {
   return (
     <View
       style={{
@@ -77,6 +78,19 @@ export default function Header({ showBack = true, type, label }: HeaderProps) {
           <Text style={[urbanist.bold, { fontSize: 24 }]}>{label}</Text>
 
           <VerticalEllipsis />
+        </View>
+      ) : undefined}
+
+      {type === "default" ? (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "center",
+            flex: 1,
+          }}
+        >
+          <Text style={[urbanist.bold, { fontSize: 24 }]}>{label}</Text>
         </View>
       ) : undefined}
     </View>
