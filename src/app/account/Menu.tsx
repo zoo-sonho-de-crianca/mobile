@@ -10,15 +10,13 @@ import Logout from "../components/Logout";
 
 export default function UserProfile() {
   return (
-    <View className="flex-1 p-6 flex flex-col">
+    <View className="flex-1 p-6 flex flex-col gap-5">
       <View className="flex flex-row justify-between items-center">
         <Text style={[urbanist.bold]} className="text-3xl">
           Contas
         </Text>
 
-        <Button>
-          <PlusOrangeIcon height={36} width={36} />
-        </Button>
+        <PlusOrangeIcon height={36} width={36} />
       </View>
 
       <View className="flex-1">

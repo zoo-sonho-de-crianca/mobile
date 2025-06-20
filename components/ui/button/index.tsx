@@ -134,7 +134,7 @@ type IButtonProps = Omit<
 > &
   VariantProps<typeof buttonStyle> & {
     className?: string;
-    type?: "orange" | "lightOrange" | "blackOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember";
+    type: "orange" | "lightOrange" | "blackOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline";
   };
 
 const Button = React.forwardRef<
@@ -172,9 +172,9 @@ const Button = React.forwardRef<
           paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 0 : 16,
           paddingHorizontal: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 12 : 16,
           borderRadius: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 8 : 1000,
-          borderWidth: type === "apple" || type === "google" ? 1 : undefined,
+          borderWidth: type === "apple" || type === "google" ? 1 : type === "outline" ? 2 : undefined,
           borderColor:
-            type === "apple" || type === "google" ? "#EEEEEE" : undefined,
+            type === "apple" || type === "google" ? "#EEEEEE" : type === "outline" ? colors.orange : undefined,
         },
       ]}
       className={buttonStyle({

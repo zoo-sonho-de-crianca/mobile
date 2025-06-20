@@ -36,7 +36,7 @@ export default function Profile() {
 
       <View style={{ flex: 1, backgroundColor: colors.white }}>
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <Header />
+          <Header label="Perfil" />
 
           <View className="px-6 gap-[32px] flex flex-col flex-grow">
             <View className="flex flex-col gap-2">

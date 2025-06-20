@@ -11,11 +11,11 @@ import { colors } from "@/src/styles/colors";
 
 type HeaderProps = {
   showBack?: boolean;
-  type?: string;
+  type?: "default" | "notify" | "settings" | "search";
   label?: string | undefined;
 };
 
-export default function Header({ showBack = true, type = "default", label }: HeaderProps) {
+export default function Header({ type = "default", label }: HeaderProps) {
   return (
     <View
       style={{
@@ -26,12 +26,6 @@ export default function Header({ showBack = true, type = "default", label }: Hea
         paddingVertical: 12,
       }}
     >
-      {showBack ? (
-        <TouchableOpacity onPress={() => router.back()}>
-          <Ionicons name="arrow-back" size={28} />
-        </TouchableOpacity>
-      ) : undefined}
-
       {type === "notify" ? (
         <View
           style={{
@@ -86,11 +80,35 @@ export default function Header({ showBack = true, type = "default", label }: Hea
           style={{
             flexDirection: "row",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             flex: 1,
           }}
         >
+          <TouchableOpacity onPress={() => router.back()} className="w-1/3 items-start justify-center">
+            <Ionicons name="arrow-back" size={28} />
+          </TouchableOpacity>
+
+          <Text style={[urbanist.bold, { fontSize: 24 }]} className="w-1/3 text-center">{label}</Text>
+        </View>
+      ) : undefined}
+
+      {type === "search" ? (
+        <View
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flex: 1,
+          }}
+        >
+
+          <TouchableOpacity onPress={() => router.back()}>
+            <Ionicons name="arrow-back" size={28} />
+          </TouchableOpacity>
+
           <Text style={[urbanist.bold, { fontSize: 24 }]}>{label}</Text>
+
+          <Ionicons name="search-outline" size={24} />
         </View>
       ) : undefined}
     </View>

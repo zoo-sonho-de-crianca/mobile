@@ -9,6 +9,7 @@ import { urbanist } from "@/src/styles/typography";
 import SendIcon from '@/assets/images/send-01.svg'
 import { Select, SelectBackdrop, SelectContent, SelectDragIndicator, SelectDragIndicatorWrapper, SelectIcon, SelectInput, SelectItem, SelectPortal, SelectTrigger } from "@/components/ui/select";
 import InvitedChevronDownIcon from "@/assets/images/invited-chevron-down.svg";
+import { Ionicons } from "@expo/vector-icons";
 
 export default function ComponentButton({
   label,
@@ -18,7 +19,7 @@ export default function ComponentButton({
   ...props
 }: {
   label: string;
-  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember";
+  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline";
   textColor: ColorValue;
   link?: Href;
 } & React.ComponentProps<typeof Button>) {
@@ -124,6 +125,14 @@ export default function ComponentButton({
                   </SelectContent>
                 </SelectPortal>
               </Select>
+            </Button>
+          ) : undefined}
+
+          {type === "outline" ? (
+            <Button type="outline">
+              <Ionicons name="add-outline" size={20} color={colors.orange} />
+
+              <Text style={[urbanist.bold, { color: colors.orange }]}>{label}</Text>
             </Button>
           ) : undefined}
         </>
