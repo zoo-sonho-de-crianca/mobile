@@ -150,7 +150,7 @@ const Button = React.forwardRef<
       {...props}
       style={[
         {
-          height: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 40 : 56,
+          height: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" ? 40 : 56,
           backgroundColor:
             type === "orange"
               ? colors.orange
@@ -169,7 +169,7 @@ const Button = React.forwardRef<
                           : type === "apple"
                             ? colors.apple
                             : undefined,
-          paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 0 : 16,
+          paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" ? 0 : 16,
           paddingHorizontal: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 12 : 16,
           borderRadius: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 8 : 1000,
           borderWidth: type === "apple" || type === "google" ? 1 : type === "outline" ? 2 : undefined,
