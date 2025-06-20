@@ -20,6 +20,7 @@ import { urbanist } from "../styles/typography";
 import ChevronDownIcon from "@/assets/images/chevron-down_icon.svg";
 import ComponentButton from "./components/ComponentButton";
 import { Image } from "expo-image";
+import { Ionicons } from "@expo/vector-icons";
 
 const inviteAvatar = require('@/assets/images/invite_avatar.png')
 const inviteAvatar02 = require('@/assets/images/invite_avatar02.png')
@@ -163,6 +164,16 @@ export default function Convites() {
                   </View>
 
                   <ComponentButton textColor={colors.black} type="invitedMember" label="Admin" />
+                </View>
+
+                <View className="flex flex-row items-center justify-between">
+                  <View className="flex flex-row items-center gap-3">
+                    <Image source={inviteAvatar02} style={{ height: 32, width: 32 }} />
+
+                    <Text style={[urbanist.medium]} className="text-sm">Marvin McKinney</Text>
+                  </View>
+
+                  <Ionicons name="time-outline" size={20} color="#FACC15" />
                 </View>
               </View>
             </View>
