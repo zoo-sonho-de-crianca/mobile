@@ -4,7 +4,7 @@ import Header from "../components/Header";
 import { VStack } from "@/components/ui/vstack";
 import { Input, InputField, InputIcon, InputSlot } from "@/components/ui/input";
 import { Image } from "expo-image";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import {
   Checkbox,
   CheckboxIcon,
@@ -21,11 +21,42 @@ import EyeOffIcon from "@/assets/images/eye-off_icon.svg";
 import LockIcon from "@/assets/images/lock_icon.svg";
 import MessageIcon from "@/assets/images/message_icon.svg";
 import CheckIcon from "@/assets/images/check_icon.svg";
+import { createUserWithEmailAndPassword } from "@/auth/email-password";
 
 export default function SignUpScreen() {
   const [showPassword, setShowPassword] = React.useState(false);
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
   const [showModal, setShowModal] = React.useState(false);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
+  const handleSignUp = async () => {
+    if (!email || !password) {
+      alert("Por favor, preencha e-mail e senha.");
+      return;
+    }
+
+    setLoading(true);
+    setShowModal(true);
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(email, password);
+      console.log("Usuário criado:", userCredential.user.email);
+
+      // ✅ aqui você decide: navegar ou fechar modal
+      setShowModal(false);
+      // exemplo: navegar para menu
+      router.replace("/account/menu"); // ou use Link, dependendo do roteador
+    } catch (error: any) {
+      console.error(error);
+      alert(error.message);
+      setShowModal(false);
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   return (
     <View className="flex-1 bg-white">
@@ -53,6 +84,8 @@ export default function SignUpScreen() {
                   placeholder="E-mail"
                   style={urbanist.regular}
                   className="text-[18px] pl-3"
+                  value={email}
+                  onChangeText={setEmail}
                 />
               </Input>
             </VStack>
@@ -71,6 +104,8 @@ export default function SignUpScreen() {
                   placeholder="Senha"
                   style={urbanist.regular}
                   className="text-[18px] pl-3"
+                  value={password}
+                  onChangeText={setPassword}
                 />
                 <InputSlot onPress={togglePasswordVisibility} className="pr-5">
                   <InputIcon
@@ -88,7 +123,7 @@ export default function SignUpScreen() {
 
             {/* Checkbox e Esqueceu */}
             <View className="mt-6 flex flex-col gap-9 items-center">
-              <Checkbox value="keep-logged" onChange={() => {}}>
+              <Checkbox value="keep-logged" onChange={() => { }}>
                 <CheckboxIndicator>
                   <CheckboxIcon as={CheckIcon} />
                 </CheckboxIndicator>
@@ -145,22 +180,23 @@ export default function SignUpScreen() {
             </View>
           </View>
 
-          <ComponentButton 
+          <ComponentButton
             label="Cadastre-se"
             textColor={colors.white}
             type="orange"
-            link={"/account/menu"}
-            onPress={() => setShowModal(true)}
+            onPress={handleSignUp}
           />
 
           <CustomModal
             isOpen={showModal}
             onClose={() => {
-              setShowModal(false);
+              if (!loading) setShowModal(false);
             }}
             size="md"
           >
-            <Spinner size="large" color={colors.orange} />
+            {loading ? (
+              <Spinner size="large" color={colors.orange} />
+            ) : undefined}
           </CustomModal>
         </View>
       </ScrollView>

@@ -1,4 +1,4 @@
-import { Link, type Href } from "expo-router";
+import { Link, useRouter, type Href } from "expo-router";
 import React from "react";
 import { Text, View, type ColorValue } from "react-native";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,8 @@ import SendIcon from '@/assets/images/send-01.svg'
 import { Select, SelectBackdrop, SelectContent, SelectDragIndicator, SelectDragIndicatorWrapper, SelectIcon, SelectInput, SelectItem, SelectPortal, SelectTrigger } from "@/components/ui/select";
 import InvitedChevronDownIcon from "@/assets/images/invited-chevron-down.svg";
 import { Ionicons } from "@expo/vector-icons";
+import Logout from "./Logout";
+import { signOut } from "@/auth/email-password";
 
 export default function ComponentButton({
   label,
@@ -18,9 +20,9 @@ export default function ComponentButton({
   link,
   ...props
 }: {
-  label: string;
-  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline";
-  textColor: ColorValue;
+  label?: string;
+  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline" | "logout";
+  textColor?: ColorValue;
   link?: Href;
 } & React.ComponentProps<typeof Button>) {
   const renderIcon = () => {
@@ -29,10 +31,23 @@ export default function ComponentButton({
     return null;
   };
 
-  return (
-    <>
-      {link ? (
 
+  const router = useRouter();
+
+  const handleSignOut = async () => {
+    try {
+      await signOut();
+      // Após sign out, garante que volta pro login, sem voltar pra tela de conta:
+      router.replace("/auth/sign-in");
+    } catch (error: any) {
+      console.error(error);
+      alert("Erro ao sair. Tente novamente.");
+    }
+  };
+
+  return (
+    <View className="cursor-pointer">
+      {link ? (
         <Link href={link} asChild>
           <Button
             className="relative flex-row items-center justify-center px-4 min-h-[52px]"
@@ -135,8 +150,34 @@ export default function ComponentButton({
               <Text style={[urbanist.bold, { color: colors.orange }]}>{label}</Text>
             </Button>
           ) : undefined}
+
+          {type === "logout" ? (
+            <Button type="logout" className="flex justify-start" onPress={handleSignOut} {...props}>
+              <Logout />
+            </Button>
+          ) : undefined}
+
+          {!link && type !== "logout" ? (
+            <Button
+              type={type}
+              {...props}
+            >
+              {(type === "apple" || type === "google") && (
+                <View className="absolute left-4">{renderIcon()}</View>
+              )}
+
+              <Text
+                style={{
+                  color: textColor,
+                }}
+                className="flex-1 text-center font-bold"
+              >
+                {label}
+              </Text>
+            </Button>
+          ) : undefined}
         </>
       )}
-    </>
+    </View>
   );
 }

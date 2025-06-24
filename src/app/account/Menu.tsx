@@ -7,8 +7,12 @@ import { Button } from "@/components/ui/button";
 import PlusOrangeIcon from "@/assets/images/plus-orange_icon.svg";
 import { colors } from "@/src/styles/colors";
 import Logout from "../components/Logout";
+import ComponentButton from "../components/ComponentButton";
+import { signOut } from "@/auth/email-password";
+import { useRouter } from "expo-router";
 
 export default function UserProfile() {
+
   return (
     <View className="flex-1 p-6 flex flex-col gap-5">
       <View className="flex flex-row justify-between items-center">
@@ -23,7 +27,9 @@ export default function UserProfile() {
         <AccountCard />
       </View>
 
-      <Logout />
+      <ComponentButton
+        type="logout"
+      />
     </View>
   );
 }
