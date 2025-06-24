@@ -134,7 +134,7 @@ type IButtonProps = Omit<
 > &
   VariantProps<typeof buttonStyle> & {
     className?: string;
-    type: "orange" | "lightOrange" | "blackOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline" | "logout";
+    type: "orange" | "lightOrange" | "blackOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline" | "logout" | "add" | "create" | "default";
   };
 
 const Button = React.forwardRef<
@@ -150,28 +150,30 @@ const Button = React.forwardRef<
       {...props}
       style={[
         {
-          height: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" ? 40 : type === "logout" ? undefined : 56,
+          height: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" || type === "create" ? 40 : type === "logout" || type === "add" ? undefined : 56,
           backgroundColor:
             type === "orange"
               ? colors.orange
               : type === "invitationOwner"
                 ? colors.invitationOwnerButtonGray
-                : type === "invitedMember"
+                : type === "create"
                   ? colors.orange
-                  : type === "lightOrange"
-                    ? colors.lightOrange
-                    : type === "invite"
-                      ? colors.orange
-                      : type === "blackOrange"
-                        ? colors.blackOrange
-                        : type === "google"
-                          ? colors.google
-                          : type === "apple"
-                            ? colors.apple
-                            : undefined,
-          paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" || type === "logout" ? 0 : 16,
-          paddingHorizontal: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 12 : type === "logout" ? 0 : 16,
-          borderRadius: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 8 : 1000,
+                  : type === "invitedMember"
+                    ? colors.orange
+                    : type === "lightOrange"
+                      ? colors.lightOrange
+                      : type === "invite"
+                        ? colors.orange
+                        : type === "blackOrange"
+                          ? colors.blackOrange
+                          : type === "google"
+                            ? colors.google
+                            : type === "apple"
+                              ? colors.apple
+                              : undefined,
+          paddingVertical: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "outline" || type === "logout" || type === "add" || type === "create" ? 0 : 16,
+          paddingHorizontal: type === "invite" || type === "invitationOwner" || type === "invitedMember" ? 12 : type === "logout" || type === "add" ? 0 : 16,
+          borderRadius: type === "invite" || type === "invitationOwner" || type === "invitedMember" || type === "create" ? 8 : type === "add" ? undefined : 1000,
           borderWidth: type === "apple" || type === "google" ? 1 : type === "outline" ? 2 : undefined,
           borderColor:
             type === "apple" || type === "google" ? "#EEEEEE" : type === "outline" ? colors.orange : undefined,

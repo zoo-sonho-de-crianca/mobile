@@ -7,6 +7,7 @@ import Logout from "../components/Logout";
 import { colors } from "@/src/styles/colors";
 import { urbanist } from "@/src/styles/typography";
 import SettingsCard from "../components/SettingsCard";
+import ComponentButton from "../components/ComponentButton";
 
 const FabricioAvatar = require("@/assets/images/fabricio_avatar_profile.png");
 
@@ -20,7 +21,7 @@ export default function Settings() {
           flexGrow: 1,
           justifyContent: "space-between",
           paddingHorizontal: 24,
-          paddingBottom: 32, // para evitar que o botão fique grudado em borda inferior
+          paddingBottom: 24,
         }}
       >
         {/* Conteúdo principal */}
@@ -77,8 +78,7 @@ export default function Settings() {
           </View>
         </View>
 
-        {/* Botão fixado ao fim do conteúdo */}
-        <Logout />
+        <ComponentButton type="logout" />
       </ScrollView>
     </View>
   );

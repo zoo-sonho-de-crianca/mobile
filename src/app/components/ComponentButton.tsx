@@ -12,25 +12,29 @@ import InvitedChevronDownIcon from "@/assets/images/invited-chevron-down.svg";
 import { Ionicons } from "@expo/vector-icons";
 import Logout from "./Logout";
 import { signOut } from "@/auth/email-password";
+import PlusOrangeIcon from "@/assets/images/plus-orange_icon.svg";
 
 export default function ComponentButton({
   label,
   type = "lightOrange",
   textColor,
   link,
+  showModal,
+  setShowModal,
   ...props
 }: {
   label?: string;
-  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline" | "logout";
+  type: "orange" | "lightOrange" | "google" | "apple" | "invite" | "invitationOwner" | "invitedMember" | "outline" | "logout" | "add" | "create";
   textColor?: ColorValue;
   link?: Href;
+  showModal?: boolean;
+  setShowModal?: (show: boolean) => void;
 } & React.ComponentProps<typeof Button>) {
   const renderIcon = () => {
     if (type === "apple") return <AppleIcon width={24} height={24} />;
     if (type === "google") return <GoogleIcon width={24} height={24} />;
     return null;
   };
-
 
   const router = useRouter();
 
@@ -44,6 +48,16 @@ export default function ComponentButton({
       alert("Erro ao sair. Tente novamente.");
     }
   };
+
+  const excludedTypes = [
+    "invite",
+    "invitationOwner",
+    "invitedMember",
+    "outline",
+    "logout",
+    "add",
+    "create"
+  ];
 
   return (
     <View className="cursor-pointer">
@@ -72,21 +86,21 @@ export default function ComponentButton({
         </Link>
       ) : (
         <>
-          {type === "invite" ? (
+          {type === "invite" && (
             <Button type={type}>
               <Text style={[urbanist.semibold]} className="text-xs">{label}</Text>
 
               <SendIcon />
             </Button>
-          ) : undefined}
+          )}
 
-          {type === "invitationOwner" ? (
+          {type === "invitationOwner" && (
             <Button type={type}>
               <Text style={[urbanist.semibold]} className="text-xs">{label}</Text>
             </Button>
-          ) : undefined}
+          )}
 
-          {type === "invitedMember" ? (
+          {type === "invitedMember" && (
             <Button type={type}>
               <Select className="w-fit">
                 <SelectTrigger
@@ -141,41 +155,57 @@ export default function ComponentButton({
                 </SelectPortal>
               </Select>
             </Button>
-          ) : undefined}
+          )}
 
-          {type === "outline" ? (
+          {type === "outline" && (
             <Button type="outline">
               <Ionicons name="add-outline" size={20} color={colors.orange} />
 
               <Text style={[urbanist.bold, { color: colors.orange }]}>{label}</Text>
             </Button>
-          ) : undefined}
+          )}
 
-          {type === "logout" ? (
+          {type === "logout" && (
             <Button type="logout" className="flex justify-start" onPress={handleSignOut} {...props}>
               <Logout />
             </Button>
-          ) : undefined}
+          )}
 
-          {!link && type !== "logout" ? (
+          {type === "add" && (
+            <Button type={type} onPress={() => setShowModal && setShowModal(true)}>
+              <PlusOrangeIcon height={36} width={36} />
+            </Button>
+          )}
+
+          {type === "create" && (
             <Button
               type={type}
+              className="justify-center items-center"
               {...props}
             >
+              <Text
+                style={{ color: textColor }}
+                className="text-center font-bold"
+              >
+                {label}
+              </Text>
+            </Button>
+          )}
+
+
+          {!link && !excludedTypes.includes(type) && (
+            <Button type={type} {...props}>
               {(type === "apple" || type === "google") && (
                 <View className="absolute left-4">{renderIcon()}</View>
               )}
-
               <Text
-                style={{
-                  color: textColor,
-                }}
+                style={{ color: textColor }}
                 className="flex-1 text-center font-bold"
               >
                 {label}
               </Text>
             </Button>
-          ) : undefined}
+          )}
         </>
       )}
     </View>

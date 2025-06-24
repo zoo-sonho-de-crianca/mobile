@@ -22,7 +22,6 @@ export async function createUserWithEmailAndPassword(email: string, password: st
 
         await firestore().collection("users").doc(uid).set({
             email,
-            plan: "basic",
             createdAt: Date.now(),
             updatedAt: Date.now(),
         });
